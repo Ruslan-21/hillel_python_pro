@@ -1,0 +1,3 @@
+Milk,dairy,30,5
+Bread,bakery,20,10
+Toy,toys,100,2
