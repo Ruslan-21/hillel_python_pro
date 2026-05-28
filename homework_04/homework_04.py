@@ -8,13 +8,13 @@ class Product:
 
     def update_price(self, new_price):
         if new_price >= 0:
-            self.price = new_price
+            self.price = float(new_price)
         else:
             raise ValueError("not correct price")
 
     def update_quantity(self, new_quantity):
         if new_quantity >= 0:
-            self.quantity = new_quantity
+            self.quantity = int(new_quantity)
         else:
             raise ValueError("not correct quantity")
 
@@ -34,19 +34,27 @@ class Customer:
 class Order:
 
     def __init__(self):
-        self.total_price = 0
-        self.product_list = []
+        self.items = []
 
-    def add_product(self, product):
-        self.product_list.append(product)
 
+    def add_product(self, product, quantity):
+        if quantity <= 0:
+            raise ValueError("not correct quantity")
+
+        if quantity > product.quantity:
+            raise ValueError("Not enough stock")
+
+        product.quantity -= quantity
+
+        self.items.append((product, quantity))
 
     def get_total_price(self):
-        self.total_price = 0
-        for product in self.product_list:
-            self.total_price += product.price * product.quantity
+        total = 0
 
-        return self.total_price
+        for product, qty in self.items:
+            total += product.price * qty
+
+        return total
 
 customer = Customer("Mark", "mark@gmail.com")
 order = Order()
@@ -57,7 +65,7 @@ with open('products.txt', 'r') as file:
         name, categoria, price, quantity = product_line.strip().split(",")
 
         product = Product(name, categoria, price, quantity)
-        order.add_product(product)
+        order.add_product(product, 1)
 
 customer.add_new_order(order)
 
