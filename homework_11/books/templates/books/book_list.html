@@ -1,0 +1,56 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+
+<form method="get">
+    <input type="text"
+           name="q"
+           placeholder="Пошук книги"
+           value="{{ request.GET.q }}">
+
+    <button type="submit">
+        Знайти
+    </button>
+</form>
+
+<h1>Список книг</h1>
+<ul>
+    {% for book in object_list %}
+        <li>{{book.title}} - {{book.author}}
+         <a href="{% url 'books:book_update' book.pk %}">Редагувати
+         </a>
+            <a href="{% url 'books:book_delete' book.pk %}">Видалити
+         </a>
+        </li>
+
+    {% endfor %}
+</ul>
+<nav class="mt-4">
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                    Попередня
+                </a>
+            </li>
+        {% endif %}
+
+        <li class="page-item active">
+            <span class="page-link">
+                {{ page_obj.number }}
+            </span>
+        </li>
+
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                    Наступна
+                </a>
+            </li>
+        {% endif %}
+
+    </ul>
+</nav>
+
+{% endblock %}
