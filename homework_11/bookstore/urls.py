@@ -16,16 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.shortcuts import redirect
-from django.urls import path
-from books.views import books_view, categories_view
+from django.urls import path, include
 
-def force_login(request):
-    return redirect('/admin/login/?next=/admin/')
+
+def home_page(request):
+    return redirect("books:books")
+
+
 
 urlpatterns = [
-    path("", force_login),
+    path("", home_page),
     path("admin/", admin.site.urls),
 
-    path("books/", books_view, name="books"),
-    path("categories/", categories_view, name="categories"),
+    path("books/", include("books.urls")),
 ]
