@@ -21,7 +21,7 @@ from django.conf import settings
 
 
 def home_page(request):
-    return redirect("books:books")
+    return redirect("books:list")
 
 
 

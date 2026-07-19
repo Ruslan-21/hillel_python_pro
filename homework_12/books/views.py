@@ -54,22 +54,22 @@ class BookDetailView(DetailView):
 
 
 class BookCreateView(PermissionRequiredMixin, CreateView):
-    permission_required = "book.add_book"
+    permission_required = "books.add_book"
     raise_exception = True
 
 
     model = Book
     fields = "__all__"
-    success_url = reverse_lazy("books:books")
+    success_url = reverse_lazy("books:list")
 
 
 class BookUpdateView(UpdateView):
     model = Book
     fields = "__all__"
-    success_url = reverse_lazy("books:books")
+    success_url = reverse_lazy("books:list")
 
 
 class BookDeleteView(DeleteView):
     model = Book
     template_name = "books/book_confirm_delete.html"
-    success_url = reverse_lazy("books:books")
+    success_url = reverse_lazy("books:list")
