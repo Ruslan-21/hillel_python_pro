@@ -54,7 +54,7 @@ class BookDetailView(DetailView):
 
 
 class BookCreateView(PermissionRequiredMixin, CreateView):
-    permission_required = "books.add_book"
+    permission_required = "books.add_bookwsl --status"
     raise_exception = True
 
 
