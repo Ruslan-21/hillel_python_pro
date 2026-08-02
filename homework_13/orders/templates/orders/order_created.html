@@ -1,0 +1,16 @@
+<h1>Спасибо за заказ!</h1>
+
+<p>
+Ваш заказ №{{ order.id }}
+</p>
+
+
+<form action="{% url 'orders:create_checkout_session' order.id %}" method="post">
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Оплатить
+    </button>
+
+</form>

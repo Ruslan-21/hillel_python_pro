@@ -1,0 +1,25 @@
+<h1>{{ object.title }}</h1>
+
+<p>Автор: {{ object.author }}</p>
+
+<p>Ціна: {{ object.price }}</p>
+
+<p>Опис: {{ object.description }}</p>
+
+<p>Кількість: {{ object.stock }}</p>
+
+
+<form action="{% url 'cart:cart_add' object.id %}" method="post">
+    {{ cart_book_form.as_p }}
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Додати в кошик
+    </button>
+</form>
+
+
+<a href="{% url 'books:list' %}">
+    Назад до списку
+</a>

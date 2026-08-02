@@ -1,0 +1,54 @@
+<h1>Кошик</h1>
+
+{% if cart %}
+<table border="1">
+    <tr>
+        <th>Книга</th>
+        <th>Кількість</th>
+        <th>Ціна</th>
+        <th>Вартість</th>
+        <th></th>
+    </tr>
+
+    {% for item in cart %}
+    <tr>
+        <td>{{ item.book.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.total_price }}</td>
+        <td>
+            <a href="{% url 'cart:cart_remove' item.book.id %}">
+                Видалити
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>
+    <strong>Загальна сума:</strong> {{ cart.get_total_price }}
+</p>
+
+<p>
+    <a href="{% url 'orders:order_create' %}">
+        Оформити замовлення
+    </a>
+</p>
+
+<p>
+    <a href="{% url 'books:list' %}">
+        Продовжити покупки
+    </a>
+</p>
+
+{% else %}
+
+<p>Кошик порожній.</p>
+
+<p>
+    <a href="{% url 'books:list' %}">
+        Продовжити покупки
+    </a>
+</p>
+
+{% endif %}
