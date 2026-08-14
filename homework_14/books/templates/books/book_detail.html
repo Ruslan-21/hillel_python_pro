@@ -1,0 +1,42 @@
+{% extends "books/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>{{ object.title }}</h1>
+
+<p>
+    {% translate "Author" %}: {{ object.author }}
+</p>
+
+<p>
+    {% translate "Price" %}: {{ object.price }}
+</p>
+
+<p>
+    {% translate "Description" %}: {{ object.description }}
+</p>
+
+<p>
+    {% translate "Stock" %}: {{ object.stock }}
+</p>
+
+
+<form action="{% url 'cart:cart_add' object.id %}" method="post">
+
+    {{ cart_book_form.as_p }}
+
+    {% csrf_token %}
+
+    <button type="submit">
+        {% translate "Add to cart" %}
+    </button>
+
+</form>
+
+
+<a href="{% url 'books:list' %}">
+    {% translate "Back to book list" %}
+</a>
+
+{% endblock %}
