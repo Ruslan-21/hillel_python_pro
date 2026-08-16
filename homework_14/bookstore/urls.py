@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import path, include
 from django.conf import settings
-
+from django.conf.urls.i18n import i18n_patterns
 
 def home_page(request):
     return redirect("books:list")
@@ -26,16 +26,18 @@ def home_page(request):
 
 
 urlpatterns = [
-    path("", home_page),
     path("admin/", admin.site.urls),
+]
 
+urlpatterns += i18n_patterns(
+    path("", home_page),
     path("books/", include("books.urls")),
     path("users/", include("users.urls")),
     path("cart/", include("cart.urls")),
-    path("orders/", include("orders.urls")
-),
-]
+    path("orders/", include("orders.urls")),
+)
+
 if settings.DEBUG:
     urlpatterns += [
-        path("__debug__", include("debug_toolbar.urls")),
+        path("__debug__/", include("debug_toolbar.urls")),
     ]
