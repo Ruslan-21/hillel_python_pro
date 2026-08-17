@@ -1,0 +1,16 @@
+{% extends "books/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>{% translate "Payment successful" %}</h1>
+
+<p>
+    {% translate "Thank you for your purchase!" %}
+</p>
+
+<a href="{% url 'books:list' %}">
+    {% translate "Return to store" %}
+</a>
+
+{% endblock %}

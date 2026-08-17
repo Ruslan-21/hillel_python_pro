@@ -1,0 +1,129 @@
+{% extends "books/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<form method="get">
+    <input type="text"
+           name="q"
+           placeholder="{% translate 'Search books' %}"
+           value="{{ request.GET.q }}">
+
+    <button type="submit">
+        {% translate "Search" %}
+    </button>
+</form>
+
+
+<h1>{% translate "Book list" %}</h1>
+
+<ul>
+
+    {% for book in object_list %}
+
+        <li>
+
+            <h3>
+                {{ book.title }}
+            </h3>
+
+            <p>
+                {% translate "Author" %}: {{ book.author }}
+            </p>
+
+            <p>
+                {% translate "Price" %}: {{ book.price }}
+            </p>
+
+
+            <a href="{% url 'books:book_update' book.pk %}">
+                {% translate "Edit" %}
+            </a>
+
+
+            <a href="{% url 'books:book_delete' book.pk %}">
+                {% translate "Delete" %}
+            </a>
+
+
+            <form action="{% url 'cart:cart_add' book.id %}" method="post">
+
+                {% csrf_token %}
+
+                <input type="number"
+                       name="quantity"
+                       value="1"
+                       min="1">
+
+                <input type="hidden"
+                       name="override"
+                       value="False">
+
+
+                <button type="submit">
+                    {% translate "Add to cart" %}
+                </button>
+
+            </form>
+
+
+        </li>
+
+        <hr>
+
+    {% endfor %}
+
+</ul>
+
+
+<nav class="mt-4">
+
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+
+            <li class="page-item">
+
+                <a class="page-link"
+                   href="?page={{ page_obj.previous_page_number }}">
+
+                    {% translate "Previous" %}
+
+                </a>
+
+            </li>
+
+        {% endif %}
+
+
+        <li class="page-item active">
+
+            <span class="page-link">
+
+                {{ page_obj.number }}
+
+            </span>
+
+        </li>
+
+
+        {% if page_obj.has_next %}
+
+            <li class="page-item">
+
+                <a class="page-link"
+                   href="?page={{ page_obj.next_page_number }}">
+
+                    {% translate "Next" %}
+
+                </a>
+
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+</nav>
+
+{% endblock %}
