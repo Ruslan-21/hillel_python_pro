@@ -1,0 +1,67 @@
+{% extends "books/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>{% translate "Cart" %}</h1>
+
+{% if cart %}
+
+<table border="1">
+    <tr>
+        <th>{% translate "Book" %}</th>
+        <th>{% translate "Quantity" %}</th>
+        <th>{% translate "Price" %}</th>
+        <th>{% translate "Total" %}</th>
+        <th></th>
+    </tr>
+
+    {% for item in cart %}
+
+    <tr>
+        <td>{{ item.book.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.total_price }}</td>
+
+        <td>
+            <a href="{% url 'cart:cart_remove' item.book.id %}">
+                {% translate "Delete" %}
+            </a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<p>
+    <strong>{% translate "Total amount" %}:</strong>
+    {{ cart.get_total_price }}
+</p>
+
+<p>
+    <a href="{% url 'orders:order_create' %}">
+        {% translate "Place order" %}
+    </a>
+</p>
+
+<p>
+    <a href="{% url 'books:list' %}">
+        {% translate "Continue shopping" %}
+    </a>
+</p>
+
+{% else %}
+
+<p>{% translate "Your cart is empty." %}</p>
+
+<p>
+    <a href="{% url 'books:list' %}">
+        {% translate "Continue shopping" %}
+    </a>
+</p>
+
+{% endif %}
+
+{% endblock %}
