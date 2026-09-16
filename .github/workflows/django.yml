@@ -12,6 +12,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: homework_18
+
     services:
       postgres:
         image: postgres:16
@@ -71,6 +75,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./homework_18
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore:latest
