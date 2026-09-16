@@ -1,7 +1,6 @@
 import pytest
 from decimal import Decimal
 
-from books.models import Book, Category
 from tests.factories import BookFactory, CategoryFactory
 
 

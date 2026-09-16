@@ -4,7 +4,6 @@ from django.urls import reverse
 
 from users.forms import RegisterForm
 
-
 User = get_user_model()
 
 

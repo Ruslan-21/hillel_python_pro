@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.core.cache import cache
-from django.views.decorators.cache import cache_page
 from django.db.models import Q, Count
 from cart.forms import CartAddBookForm
 from books.models import Book, Category
@@ -21,8 +20,7 @@ from .serializers import BookSerializer, CategorySerializer
 
 def books_view(request):
     books = Book.objects.filter(stock__gt=1).filter(
-        Q(title__icontains="1943") |
-        Q(author__icontains="taras")
+        Q(title__icontains="1943") | Q(author__icontains="taras")
     )
 
     result = ""
@@ -48,9 +46,7 @@ async def async_books_view(request):
 
 
 def categories_view(request):
-    categories = Category.objects.annotate(
-        books_count=Count("book")
-    )
+    categories = Category.objects.annotate(books_count=Count("book"))
 
     result = ""
 
@@ -61,9 +57,7 @@ def categories_view(request):
 
 
 async def async_categories_view(request):
-    categories = Category.objects.annotate(
-        books_count=Count("book")
-    )
+    categories = Category.objects.annotate(books_count=Count("book"))
 
     result = ""
 
@@ -98,8 +92,7 @@ class BooksListView(ListView):
 
         if query:
             queryset = queryset.filter(
-                Q(title__icontains=query) |
-                Q(author__icontains=query)
+                Q(title__icontains=query) | Q(author__icontains=query)
             )
 
         return queryset.order_by("id")

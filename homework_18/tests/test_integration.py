@@ -4,7 +4,6 @@ from django.urls import reverse
 from tests.factories import BookFactory, CategoryFactory
 from orders.models import Order
 
-
 User = get_user_model()
 
 
@@ -43,14 +42,12 @@ def test_user_registration_invalid_password_flow(client):
 
     assert response.status_code == 200
 
-    assert not User.objects.filter(
-        username="integration_user"
-    ).exists()
+    assert not User.objects.filter(username="integration_user").exists()
 
 
 @pytest.mark.django_db
 def test_user_login_flow(client):
-    user = User.objects.create_user(
+    User.objects.create_user(
         username="login_user",
         email="login@example.com",
         password="StrongPassword123!",
@@ -152,9 +149,7 @@ def test_category_books_flow(client):
 def test_async_books_flow(client):
     BookFactory(title="Async Integration Book")
 
-    response = client.get(
-        reverse("books:async_books")
-    )
+    response = client.get(reverse("books:async_books"))
 
     assert response.status_code == 200
     assert "Async Integration Book" in response.content.decode()
@@ -166,9 +161,7 @@ def test_async_categories_flow(client):
 
     BookFactory(category=category)
 
-    response = client.get(
-        reverse("books:async_categories")
-    )
+    response = client.get(reverse("books:async_categories"))
 
     assert response.status_code == 200
     assert "Science: 1" in response.content.decode()
@@ -243,9 +236,7 @@ def test_order_creation_flow(client):
     assert "Thank you for your order!" in content
     assert "Your order" in content
 
-    order = Order.objects.get(
-        email="john@example.com"
-    )
+    order = Order.objects.get(email="john@example.com")
 
     assert order.first_name == "John"
     assert order.last_name == "Doe"
@@ -254,9 +245,7 @@ def test_order_creation_flow(client):
 
 @pytest.mark.django_db
 def test_order_create_get_flow(client):
-    response = client.get(
-        reverse("orders:order_create")
-    )
+    response = client.get(reverse("orders:order_create"))
 
     assert response.status_code == 200
 
@@ -336,9 +325,7 @@ def test_cart_detail_flow(client):
 
     assert response.status_code == 302
 
-    response = client.get(
-        reverse("cart:cart_detail")
-    )
+    response = client.get(reverse("cart:cart_detail"))
 
     assert response.status_code == 200
 

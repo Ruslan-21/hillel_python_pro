@@ -44,9 +44,7 @@ def test_books_list_search(client):
 def test_book_detail_view(client):
     book = BookFactory(title="The Hobbit")
 
-    response = client.get(
-        reverse("books:book_detail", kwargs={"pk": book.pk})
-    )
+    response = client.get(reverse("books:book_detail", kwargs={"pk": book.pk}))
 
     assert response.status_code == 200
     assert "The Hobbit" in response.content.decode()
@@ -54,9 +52,7 @@ def test_book_detail_view(client):
 
 @pytest.mark.django_db
 def test_book_detail_view_404(client):
-    response = client.get(
-        reverse("books:book_detail", kwargs={"pk": 99999})
-    )
+    response = client.get(reverse("books:book_detail", kwargs={"pk": 99999}))
 
     assert response.status_code == 404
 

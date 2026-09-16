@@ -10,10 +10,7 @@ from django.core.management import call_command
 def send_order_email(order_id, email):
     send_mail(
         subject="Ваше замовлення створено",
-        message=(
-            f"Дякуємо за замовлення! "
-            f"Номер вашого замовлення: {order_id}."
-        ),
+        message=(f"Дякуємо за замовлення! " f"Номер вашого замовлення: {order_id}."),
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[email],
         fail_silently=False,
@@ -23,9 +20,7 @@ def send_order_email(order_id, email):
 @shared_task
 def generate_orders_report():
     total_orders = Order.objects.count()
-    total_items = Order.objects.aggregate(
-        total=Sum("items__quantity")
-    )["total"] or 0
+    total_items = Order.objects.aggregate(total=Sum("items__quantity"))["total"] or 0
 
     report = {
         "total_orders": total_orders,
@@ -35,6 +30,7 @@ def generate_orders_report():
     print(f"Orders report: {report}")
 
     return report
+
 
 @shared_task
 def clear_expired_sessions():

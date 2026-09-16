@@ -6,9 +6,7 @@ from .models import Order
 @shared_task
 def generate_orders_report():
     total_orders = Order.objects.count()
-    total_items = Order.objects.aggregate(
-        total=Sum("items__quantity")
-    )["total"] or 0
+    total_items = Order.objects.aggregate(total=Sum("items__quantity"))["total"] or 0
 
     report = {
         "total_orders": total_orders,

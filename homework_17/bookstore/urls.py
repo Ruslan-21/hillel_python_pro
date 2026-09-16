@@ -17,6 +17,7 @@ from rest_framework_simplejwt.views import (
 from books.api_urls import urlpatterns as books_api_urls
 from orders.api_urls import urlpatterns as orders_api_urls
 from cart.api_urls import urlpatterns as cart_api_urls
+from .health import health_check
 
 
 def home_page(request):
@@ -25,6 +26,7 @@ def home_page(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/health/", health_check, name="health_check"),
 
     path("api/", include(books_api_urls)),
     path("api/", include(orders_api_urls)),

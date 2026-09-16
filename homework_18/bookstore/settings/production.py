@@ -3,9 +3,7 @@ from .base import *
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    host
-    for host in os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
-    if host
+    host for host in os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",") if host
 ]
 
 CSRF_TRUSTED_ORIGINS = [

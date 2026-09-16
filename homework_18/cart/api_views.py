@@ -15,19 +15,23 @@ class CartViewSet(viewsets.ViewSet):
         items = []
 
         for item in cart:
-            items.append({
-                "book_id": item["book"].id,
-                "title": item["book"].title,
-                "price": str(item["price"]),
-                "quantity": item["quantity"],
-                "total_price": str(item["total_price"]),
-            })
+            items.append(
+                {
+                    "book_id": item["book"].id,
+                    "title": item["book"].title,
+                    "price": str(item["price"]),
+                    "quantity": item["quantity"],
+                    "total_price": str(item["total_price"]),
+                }
+            )
 
-        return Response({
-            "items": items,
-            "total_price": str(cart.get_total_price()),
-            "total_quantity": len(cart),
-        })
+        return Response(
+            {
+                "items": items,
+                "total_price": str(cart.get_total_price()),
+                "total_quantity": len(cart),
+            }
+        )
 
     def create(self, request):
         book_id = request.data.get("book_id")

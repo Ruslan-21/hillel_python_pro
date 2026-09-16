@@ -5,7 +5,6 @@ from django.urls import reverse
 
 from orders.models import Order, OrderItem
 from tests.factories import BookFactory
-from cart.cart import Cart
 
 
 @pytest.mark.django_db

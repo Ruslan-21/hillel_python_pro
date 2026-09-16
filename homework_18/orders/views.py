@@ -13,7 +13,6 @@ from .models import Order, OrderItem
 from .serializers import OrderSerializer
 from .tasks import send_order_email
 
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -79,12 +78,8 @@ def create_checkout_session(request, order_id):
         payment_method_types=["card"],
         line_items=line_items,
         mode="payment",
-        success_url=request.build_absolute_uri(
-            reverse("orders:payment_success")
-        ),
-        cancel_url=request.build_absolute_uri(
-            reverse("orders:payment_cancel")
-        ),
+        success_url=request.build_absolute_uri(reverse("orders:payment_success")),
+        cancel_url=request.build_absolute_uri(reverse("orders:payment_cancel")),
     )
 
     return redirect(session.url)
@@ -105,9 +100,7 @@ def payment_cancel(request):
 
 
 class OrderViewSet(viewsets.ModelViewSet):
-    queryset = Order.objects.prefetch_related(
-        "items__book"
-    ).all()
+    queryset = Order.objects.prefetch_related("items__book").all()
     serializer_class = OrderSerializer
 
     def get_permissions(self):
