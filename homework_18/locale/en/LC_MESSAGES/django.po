@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 17:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: books/models.py:8
+msgid "Name"
+msgstr ""
+
+#: books/models.py:13
+msgid "Slug"
+msgstr ""
+
+#: books/models.py:17 books/models.py:55
+msgid "Category"
+msgstr ""
+
+#: books/models.py:18 books/templates/books/base.html:35
+msgid "Categories"
+msgstr ""
+
+#: books/models.py:27
+msgid "Title"
+msgstr ""
+
+#: books/models.py:32 books/templates/books/book_detail.html:9
+#: books/templates/books/book_list.html:31
+msgid "Author"
+msgstr ""
+
+#: books/models.py:38 books/templates/books/book_detail.html:13
+#: books/templates/books/book_list.html:35 cart/templates/cart/detail.html:14
+#: orders/models.py:76
+msgid "Price"
+msgstr ""
+
+#: books/models.py:43 books/templates/books/book_detail.html:17
+msgid "Description"
+msgstr ""
+
+#: books/models.py:47 books/templates/books/book_detail.html:21
+msgid "Stock"
+msgstr ""
+
+#: books/templates/books/base.html:27
+msgid "Books"
+msgstr ""
+
+#: books/templates/books/base.html:31 books/templates/books/book_form.html:6
+msgid "Add book"
+msgstr ""
+
+#: books/templates/books/book_confirm_delete.html:6
+msgid "Delete book"
+msgstr ""
+
+#: books/templates/books/book_confirm_delete.html:9
+msgid "Are you sure you want to delete the book"
+msgstr ""
+
+#: books/templates/books/book_confirm_delete.html:17
+msgid "Yes, delete"
+msgstr ""
+
+#: books/templates/books/book_confirm_delete.html:22
+msgid "Cancel"
+msgstr ""
+
+#: books/templates/books/book_detail.html:32
+#: books/templates/books/book_list.html:64
+msgid "Add to cart"
+msgstr ""
+
+#: books/templates/books/book_detail.html:39
+msgid "Back to book list"
+msgstr ""
+
+#: books/templates/books/book_form.html:13
+msgid "Save"
+msgstr ""
+
+#: books/templates/books/book_list.html:9
+msgid "Search books"
+msgstr ""
+
+#: books/templates/books/book_list.html:13
+msgid "Search"
+msgstr ""
+
+#: books/templates/books/book_list.html:18
+msgid "Book list"
+msgstr ""
+
+#: books/templates/books/book_list.html:40
+msgid "Edit"
+msgstr ""
+
+#: books/templates/books/book_list.html:45 cart/templates/cart/detail.html:29
+msgid "Delete"
+msgstr ""
+
+#: books/templates/books/book_list.html:90
+msgid "Previous"
+msgstr ""
+
+#: books/templates/books/book_list.html:117
+msgid "Next"
+msgstr ""
+
+#: cart/forms.py:9 cart/templates/cart/detail.html:13 orders/models.py:81
+msgid "Quantity"
+msgstr ""
+
+#: cart/forms.py:16
+msgid "Override"
+msgstr ""
+
+#: cart/templates/cart/detail.html:6
+msgid "Cart"
+msgstr ""
+
+#: cart/templates/cart/detail.html:12 orders/models.py:70
+msgid "Book"
+msgstr ""
+
+#: cart/templates/cart/detail.html:15
+msgid "Total"
+msgstr ""
+
+#: cart/templates/cart/detail.html:39
+msgid "Total amount"
+msgstr ""
+
+#: cart/templates/cart/detail.html:45
+#: orders/templates/orders/order_create.html:6
+#: orders/templates/orders/order_create.html:37
+msgid "Place order"
+msgstr ""
+
+#: cart/templates/cart/detail.html:51 cart/templates/cart/detail.html:61
+msgid "Continue shopping"
+msgstr ""
+
+#: cart/templates/cart/detail.html:57
+msgid "Your cart is empty."
+msgstr ""
+
+#: orders/forms.py:22 orders/models.py:9
+msgid "First name"
+msgstr ""
+
+#: orders/forms.py:23 orders/models.py:14
+msgid "Last name"
+msgstr ""
+
+#: orders/forms.py:24 orders/models.py:18 users/forms.py:20
+msgid "Email"
+msgstr ""
+
+#: orders/forms.py:25 orders/models.py:23
+msgid "Address"
+msgstr ""
+
+#: orders/forms.py:26 orders/models.py:28
+msgid "City"
+msgstr ""
+
+#: orders/forms.py:27 orders/models.py:33
+msgid "Postal code"
+msgstr ""
+
+#: orders/models.py:38
+msgid "Created"
+msgstr ""
+
+#: orders/models.py:43
+msgid "Updated"
+msgstr ""
+
+#: orders/models.py:48
+msgid "Paid"
+msgstr ""
+
+#: orders/models.py:52 orders/models.py:64
+msgid "Order"
+msgstr ""
+
+#: orders/models.py:53
+msgid "Orders"
+msgstr ""
+
+#: orders/models.py:85
+msgid "Order item"
+msgstr ""
+
+#: orders/models.py:86
+msgid "Order items"
+msgstr ""
+
+#: orders/templates/orders/order_create.html:8
+msgid "Your cart"
+msgstr ""
+
+#: orders/templates/orders/order_create.html:22
+msgid "Your cart is empty"
+msgstr ""
+
+#: orders/templates/orders/order_create.html:27
+msgid "Customer information"
+msgstr ""
+
+#: orders/templates/orders/order_created.html:6
+msgid "Thank you for your order!"
+msgstr ""
+
+#: orders/templates/orders/order_created.html:9
+msgid "Your order"
+msgstr ""
+
+#: orders/templates/orders/order_created.html:17
+msgid "Pay"
+msgstr ""
+
+#: orders/templates/orders/payment_cancel.html:6
+msgid "Payment cancelled"
+msgstr ""
+
+#: orders/templates/orders/payment_cancel.html:9
+msgid "You can try again."
+msgstr ""
+
+#: orders/templates/orders/payment_cancel.html:13
+msgid "Return to checkout"
+msgstr ""
+
+#: orders/templates/orders/payment_success.html:6
+msgid "Payment successful"
+msgstr ""
+
+#: orders/templates/orders/payment_success.html:9
+msgid "Thank you for your purchase!"
+msgstr ""
+
+#: orders/templates/orders/payment_success.html:13
+msgid "Return to store"
+msgstr ""
+
+#: users/forms.py:19
+msgid "Username"
+msgstr ""
+
+#: users/forms.py:21
+msgid "Password"
+msgstr ""
+
+#: users/forms.py:22
+msgid "Password confirmation"
+msgstr ""
+
+#: users/models.py:13
+msgid "User"
+msgstr ""
+
+#: users/models.py:14
+msgid "Users"
+msgstr ""
+
+#: users/templates/users/login.html:6 users/templates/users/login.html:14
+#: users/templates/users/register.html:22
+msgid "Login"
+msgstr ""
+
+#: users/templates/users/login.html:19
+msgid "Don't have an account?"
+msgstr ""
+
+#: users/templates/users/login.html:21 users/templates/users/register.html:6
+#: users/templates/users/register.html:14
+msgid "Register"
+msgstr ""
+
+#: users/templates/users/register.html:19
+msgid "Already have an account?"
+msgstr ""
