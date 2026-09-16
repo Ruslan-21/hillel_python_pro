@@ -184,7 +184,10 @@ DEFAULT_FROM_EMAIL = "noreply@example.com"
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://redis:6379/1",
+        "LOCATION": os.getenv(
+            "CACHE_URL",
+            "redis://redis:6379/1",
+        ),
     }
 }
 

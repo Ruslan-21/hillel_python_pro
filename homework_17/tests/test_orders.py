@@ -34,8 +34,8 @@ def test_order_create_empty_cart(client):
 
 
 @pytest.mark.django_db
-@patch("orders.views.send_mail")
-def test_order_create_sends_email(mock_send_mail, client):
+@patch("orders.views.send_order_email.delay")
+def test_order_create_sends_email(mock_send_email, client):
     book = BookFactory(price="20.00")
 
     session = client.session
@@ -61,7 +61,7 @@ def test_order_create_sends_email(mock_send_mail, client):
 
     assert response.status_code == 200
     assert Order.objects.count() == 1
-    mock_send_mail.assert_called_once()
+    mock_send_email.assert_called_once()
 
 
 @pytest.mark.django_db
