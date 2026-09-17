@@ -13,12 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      DJANGO_SECRET_KEY: test-secret-key
+      DJANGO_DEBUG: "True"
+      POSTGRES_DB: test_db
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: "5432"
       CACHE_URL: redis://localhost:6379/1
-      DB_NAME: test_db
-      DB_USER: test_user
-      DB_PASSWORD: test_password
-      DB_HOST: localhost
-      DB_PORT: "5432"
 
     defaults:
       run:
@@ -95,4 +97,4 @@ jobs:
         with:
           context: ./homework_18
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore:latestgit add .github/workflows/django.yml
