@@ -21,6 +21,8 @@ jobs:
       POSTGRES_HOST: localhost
       POSTGRES_PORT: "5432"
       CACHE_URL: redis://localhost:6379/1
+      CELERY_BROKER_URL: redis://localhost:6379/0
+      CELERY_RESULT_BACKEND: redis://localhost:6379/0
 
     defaults:
       run:
@@ -97,4 +99,4 @@ jobs:
         with:
           context: ./homework_18
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore:latestgit add .github/workflows/django.yml
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore:latest
