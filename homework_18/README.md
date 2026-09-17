@@ -1,5 +1,8 @@
 # Bookstore
 
+[![Django CI](https://github.com/Ruslan-21/hillel_python_pro/actions/workflows/django.yml/badge.svg?branch=homework_18)](https://github.com/Ruslan-21/hillel_python_pro/actions/workflows/django.yml)
+[![Coverage](https://img.shields.io/badge/coverage-88%25-brightgreen)](https://github.com/Ruslan-21/hillel_python_pro/actions)
+
 Навчальний Django-проєкт книжкового магазину.
 
 ## Можливості
@@ -65,7 +68,7 @@
 
 Загальний coverage:
 
-    96%
+    88%
 
 Coverage моделей `books.models`:
 
