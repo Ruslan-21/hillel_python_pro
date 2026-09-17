@@ -29,3 +29,6 @@ django-cors-headers==4.9.0
 celery==5.5.3
 gunicorn
 sentry-sdk
+
+black
+flake8
