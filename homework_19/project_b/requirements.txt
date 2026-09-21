@@ -1,0 +1,12 @@
+Django==6.0.5
+djangorestframework
+djangorestframework-simplejwt
+psycopg2-binary==2.9.12
+redis
+celery
+gunicorn
+drf-spectacular
+python-dotenv
+pytest
+pytest-django
+pytest-cov

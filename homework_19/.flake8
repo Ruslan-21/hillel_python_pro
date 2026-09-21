@@ -1,0 +1,23 @@
+[flake8]
+max-line-length = 88
+
+exclude =
+    .git,
+    __pycache__,
+    */migrations/*,
+    staticfiles,
+    static,
+    .venv,
+    venv
+
+ignore =
+    E203,
+    W503,
+    W504,
+    W292,
+    W391
+
+per-file-ignores =
+    bookstore/settings/development.py:F401,F403,F405
+    bookstore/settings/production.py:F401,F403,F405
+    bookstore/test_settings.py:F401,F403,F405

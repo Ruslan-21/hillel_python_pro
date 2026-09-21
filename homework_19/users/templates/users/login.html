@@ -1,0 +1,25 @@
+{% extends "books/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h2>{% translate "Login" %}</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        {% translate "Login" %}
+    </button>
+</form>
+
+<p>
+    {% translate "Don't have an account?" %}
+    <a href="{% url 'register' %}">
+        {% translate "Register" %}
+    </a>
+</p>
+
+{% endblock %}
